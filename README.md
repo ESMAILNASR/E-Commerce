@@ -1,4 +1,4 @@
- ############### 1-the DB schema script ###############
+ ############### the DB schema script ###############
  
  1- category table 
  CREATE TABLE Category(
