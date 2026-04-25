@@ -1,5 +1,5 @@
- 1-the DB schema script
- ################################ 
+ ############### 1-the DB schema script ###############
+ 
  1- category table 
  CREATE TABLE Category(
    category_id INT PRIMARY KEY, 
