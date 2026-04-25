@@ -47,21 +47,21 @@ CREATE TABLE Order(
     );
 
 
-  2-the relationships between entities
-  ################################################# 
+  ################### 2-the relationships between entities #################
+   
   1-between Category and Product is one_to_many relationships
   2-between Customer and Order is one-to-many relationships 
   3-between Order and Product is many-to-many relationships 
 
 
-  3-the ERD diagram of this sample schema
-  ####################################### 
+  ################ 3-the ERD diagram of this sample schema ################
+   
   <img width="1101" height="571" alt="_ERD diagram_ drawio" src="https://github.com/user-attachments/assets/d0a13111-d9a5-43bf-aef7-157f2c97b4ba" /> 
 
-4-SQL query to generate a daily report of the total revenue for a specific date. 
+########## 4-SQL query to generate a daily report of the total revenue for a specific date. ######
 select count(*), SUM(price), AVG(price) from orders group by(orders.order_date) having (orders.order_date = '2026-04-25'); 
 
-5-an SQL query to generate a monthly report of the top-selling products in a given month. 
+######## 5-an SQL query to generate a monthly report of the top-selling products in a given month. #########
 SELECT COUNT(*), ProductID FROM OrderDetails WHERE(orders.order_date = '2026-04-25') GROUP BY (ProductID) ORDER BY(COUNT(*)) DESC; 
 
 6-
