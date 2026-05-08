@@ -2,22 +2,22 @@
 
 ## 1-the DB schema script
 
- 1- category table 
- CREATE TABLE Category(
-   category_id INT PRIMARY KEY, 
-   category_name VARCHAR(20) NOT NULL
-   ); 
+* 1- category table 
+* CREATE TABLE Category(
+*   category_id INT PRIMARY KEY, 
+*   category_name VARCHAR(20) NOT NULL
+*   ); 
 
-2-product table 
-CREATE TABLE Porduct(
-  product_id INT PRIMARY KEY, 
-  category_id INT, 
-  name VARCHAR(20) NOT NULL, 
-  description VARCHAR(50), 
-  price DECIMAL(7,2) NOT NULL, 
-  stock_quantity INT NOT NULL, 
-  CONSTRAINT FK_PorductCategory FOREIGN KEY(category_id) REFERENCES Category(category_id)
-  ); 
+* 2-product table 
+* CREATE TABLE Porduct(
+ * product_id INT PRIMARY KEY, 
+ * category_id INT, 
+ * name VARCHAR(20) NOT NULL, 
+ * description VARCHAR(50), 
+ * price DECIMAL(7,2) NOT NULL, 
+ * stock_quantity INT NOT NULL, 
+ * CONSTRAINT FK_PorductCategory FOREIGN KEY(category_id) REFERENCES Category(category_id)
+ * ); 
 
 3- customer table 
 CREATE TABLE Customer(
