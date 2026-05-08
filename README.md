@@ -80,7 +80,9 @@ WHERE DATE_FORMAT(OrderDate, '%Y-%m') = '1996-09' GROUP BY DATE_FORMAT(OrderDate
 
 
 
-
+SELECT CONCAT(C.first_name, ' ' , C.last_name) AS CustomerName, SUM(O.total_amount) AS TotalOrderAmount FROM Customer AS C JOIN Orders AS O ON C.Cutomer_id = O.Customer_id WHERE O.order_date >= current_date - interval '1 month'
+GROUP BY C.customer_id, CustomerName
+HAVING SUM(O.total_amount) > 500;
 
     
 ######### 7- apply a denormalization mechanism on customer and order entities ########### 
