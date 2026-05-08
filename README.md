@@ -3,24 +3,24 @@
 ## 1-the DB schema script
 
 * 1- category table 
-* CREATE TABLE Category(
-*   category_id INT PRIMARY KEY, 
-*   category_name VARCHAR(20) NOT NULL
-*   ); 
+ CREATE TABLE Category(
+   category_id INT PRIMARY KEY, 
+   category_name VARCHAR(20) NOT NULL
+      ); 
 
 * 2-product table 
-* CREATE TABLE Porduct(
- * product_id INT PRIMARY KEY, 
- * category_id INT, 
- * name VARCHAR(20) NOT NULL, 
- * description VARCHAR(50), 
- * price DECIMAL(7,2) NOT NULL, 
- * stock_quantity INT NOT NULL, 
- * CONSTRAINT FK_PorductCategory FOREIGN KEY(category_id) REFERENCES Category(category_id)
- * ); 
+ CREATE TABLE Porduct(
+ product_id INT PRIMARY KEY, 
+ category_id INT, 
+ name VARCHAR(20) NOT NULL, 
+ description VARCHAR(50), 
+ price DECIMAL(7,2) NOT NULL, 
+ stock_quantity INT NOT NULL, 
+ CONSTRAINT FK_PorductCategory FOREIGN KEY(category_id) REFERENCES Category(category_id)
+ ); 
 
-3- customer table 
-CREATE TABLE Customer(
+* 3- customer table 
+ CREATE TABLE Customer(
   customer_id INT PRIMARY KEY, 
   first_name VARCHAR(20), 
   last_name VARCHAR(20), 
@@ -28,7 +28,7 @@ CREATE TABLE Customer(
   password VARCHAR(30)
   ); 
 
-4-order table 
+* 4-order table 
 CREATE TABLE Order(
   order_id INT PRIMARY KEY, 
   customer_id INT, 
@@ -37,7 +37,7 @@ CREATE TABLE Order(
   CONSTRAINT FK_Order_Customer FOREIGN KEY(customer_id) REFERENCES Customer(customer_id)
   ); 
 
-  5-Order_details table 
+  * 5-Order_details table 
   CREATE TABLR Order_details(
     order_detail_id INT PRIMARY KEY, 
     order_id INT, 
