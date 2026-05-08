@@ -1,4 +1,6 @@
-# the DB schema script
+# task database 1
+
+## 1-the DB schema script
 
  1- category table 
  CREATE TABLE Category(
@@ -54,28 +56,28 @@ CREATE TABLE Order(
   3-between Order and Product is many-to-many relationships 
 
 
-# 3-the ERD diagram of this sample schema 
+## 3-the ERD diagram of this sample schema 
 
    
   <img width="1101" height="571" alt="_ERD diagram_ drawio" src="https://github.com/user-attachments/assets/d0a13111-d9a5-43bf-aef7-157f2c97b4ba" /> 
 
 
 
-# 4-SQL query to generate a daily report of the total revenue for a specific date. 
+## 4-SQL query to generate a daily report of the total revenue for a specific date. 
 
 
 select orders.order_date as 'OrderDate',   SUM(price) as 'DailyRevenue' , AVG(price) as 'averageTotalPrice' from orders where (orders.order_date = '2026-04-25') group by(orders.order_date); 
 
 <img width="333" height="50" alt="query2" src="https://github.com/user-attachments/assets/65dbbd97-7794-4b68-87cc-319f9147e6f9" />
 
-# 5-an SQL query to generate a monthly report of the top-selling products in a given month. 
+## 5-an SQL query to generate a monthly report of the top-selling products in a given month. 
 SELECT DATE_FORMAT(OrderDate, '%Y-%m') AS Month, Products.ProductID, Products.ProductName , SUM(Quantity) AS TotalQuantity FROM Orders JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID JOIN Products ON OrderDetails.ProductID = Products.ProductID 
 WHERE DATE_FORMAT(OrderDate, '%Y-%m') = '1996-09' GROUP BY DATE_FORMAT(OrderDate, '%Y-%m'), ProductID ORDER BY TotalQuantity DESC;  
 
 <img width="727" height="267" alt="resuiltQuery5" src="https://github.com/user-attachments/assets/8326fc30-1468-4d92-97ae-835c3457abb8" />
 
 
-# 6-a SQL query to retrieve a list of customers who have placed orders totaling more than $500 in the past month Include ustomer names and their total order amounts 
+## 6-a SQL query to retrieve a list of customers who have placed orders totaling more than $500 in the past month Include ustomer names and their total order amounts 
 
 
 
@@ -84,12 +86,9 @@ GROUP BY C.customer_id, CustomerName
 HAVING SUM(O.total_amount) > 500;
 
     
-# 7- apply a denormalization mechanism on customer and order entities 
+## 7- apply a denormalization mechanism on customer and order entities 
 
 be one table contian orders's columns + name_customer add id_customer.
-
-
-
 
 
 
